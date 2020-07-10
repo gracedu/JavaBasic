@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Employee {
@@ -39,6 +41,7 @@ public class Employee {
         return Objects.hash(id, name, email);
     }
 
+    /*
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -47,9 +50,25 @@ public class Employee {
                 name.equals(e.name) &&
                 Objects.equals(email, e.email);
     }
+*/
+    public static Map<Employee, Integer> getData() {
+        Map<Employee, Integer> hm = new HashMap<>();
+        Employee em = new Employee(1, "grace", "grace@test.com");
+        System.out.println(em.hashCode());
+        hm.put(em, 10);
+        return hm;
+    }
 
     //TODO do some experiments here
     public static void main(String[] args) {
+        Map<Employee, Integer> hm = getData();
+        Employee em = new Employee(1, "grace", "grace@test.com");
+        System.out.println(em.hashCode());
 
+        Integer value = hm.get(em);
+        System.out.println(value);
     }
+    //If we don't have hashCode() and equals, value will be null.
+    //Because hash codes of the two objects are different.
+    //If we only have hashCode() method, value is still null. Because the two objects are not equal.
 }
