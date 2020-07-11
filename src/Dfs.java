@@ -1,23 +1,23 @@
 public class Dfs {
     public void preOrder(TreeNode root) {
-        if (root != null) {
-            System.out.println(root.val);
-        } else {
-            return;
-        }
+        if (root == null) return;
+        System.out.print(root.val);
         if (root.left != null) preOrder((root.left));
         if (root.right != null) preOrder(root.right);
     }
 
     public void inOrder(TreeNode root) {
         if (root == null) return;
-        if (root.left != null) preOrder((root.left));
-        System.out.println(root.val);
-        if (root.right != null) preOrder(root.right);
+        if (root.left != null) inOrder(root.left);
+        System.out.print(root.val);
+        if (root.right != null) inOrder(root.right);
     }
 
     public void postOrder(TreeNode root) {
-
+        if (root == null) return;
+        if (root.left != null) postOrder(root.left);
+        if (root.right != null) postOrder(root.right);
+        System.out.print(root.val);
     }
 
     public static void  main(String[] args){
@@ -30,8 +30,13 @@ public class Dfs {
         left.left = new TreeNode(3);
         left.right = new TreeNode(2);
         right.right=new TreeNode(2);
+        System.out.println("preOrder:");
         dfsTest.preOrder(root);
-//        dfsTest.inOrder(root);
-//        dfsTest.postOrder(root);
+        System.out.println();
+        System.out.println("inOrder:");
+        dfsTest.inOrder(root);
+        System.out.println();
+        System.out.println("postOrder:");
+        dfsTest.postOrder(root);
     }
 }
