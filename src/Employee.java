@@ -59,7 +59,7 @@ public class Employee {
         return hm;
     }
 
-    //TODO do some experiments here
+
     public static void main(String[] args) {
         Map<Employee, Integer> hm = getData();
         Employee em = new Employee(1, "grace", "grace@test.com");

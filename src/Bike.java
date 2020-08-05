@@ -8,7 +8,7 @@ public class Bike {
     }
 
     public String toString() {
-        return "Wheel shape is " + wheelShape + " wheel number is" + wheelNumber ;
+        return "Wheel shape is " + wheelShape + " wheel number is " + wheelNumber ;
     }
 
     public int getWheelNumber() {
